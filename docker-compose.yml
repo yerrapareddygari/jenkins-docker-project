@@ -1,9 +1,12 @@
 version: '3.8'
+
 services:
   backend:
     image: todo-backend
     ports:
       - "5000:5000"
+    networks:
+      - todo-network
 
   frontend:
     image: todo-frontend
@@ -11,3 +14,9 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - todo-network
+
+networks:
+  todo-network:
+    driver: bridge
