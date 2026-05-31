@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                sh 'docker build -t $ECR_URI:$BUILD_NUMBER /backend'
+                sh 'docker build -t $ECR_URI:$BUILD_NUMBER ./backend'
             }
         }
 
