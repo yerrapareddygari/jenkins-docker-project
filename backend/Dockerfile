@@ -6,7 +6,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 FROM python:3.11-alpine
 WORKDIR /app
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
-COPY ..
+COPY . .
 EXPOSE 5000
-CMD ["pyhton","app.py]
-
+CMD ["python", "app.py"]
