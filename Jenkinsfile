@@ -3,13 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Code') {
-            steps {
-                git branch: 'main',
-                    url: ''
-            }
-        }
-
         stage('Build') {
             parallel {
                 stage('Build Backend') {
@@ -49,4 +42,3 @@ pipeline {
         always  { sh 'docker image prune -f' }
     }
 }
-
