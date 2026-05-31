@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  backend:
+    image: todo-backend
+    ports:
+      - "5000:5000"
+
+  frontend:
+    image: todo-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
