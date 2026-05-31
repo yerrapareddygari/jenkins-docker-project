@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Todo App</title>
+  <style>
+    body { font-family: sans-serif; background: #0f0f1a; color: #fff; text-align: center; padding: 40px; }
+    h1 { color: #00d4ff; }
+    ul { list-style: none; padding: 0; }
+    li { background: rgba(255,255,255,0.05); margin: 10px auto; padding: 14px; border-radius: 8px; width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>📝 Todo List</h1>
+  <ul id="todos"></ul>
+
+  <script>
+    fetch('http://<web-server-ip>:5000/todos')
+      .then(res => res.json())
+      .then(data => {
+        const ul = document.getElementById('todos')
+        data.forEach(todo => {
+          const li = document.createElement('li')
+          li.textContent = todo.task
+          ul.appendChild(li)
+        })
+      })
+  </script>
+</body>
+</html>
+
